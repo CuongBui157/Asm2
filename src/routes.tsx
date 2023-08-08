@@ -5,10 +5,20 @@ import Dashboard from "./page/admin/dashboard";
 import AdminProductList from "./page/admin/product/list";
 import AdminProductAdd from "./page/admin/product/add";
 import AdminProductEdit from "./page/admin/product/edit";
+import HomePage from "./page/HomePage";
+import ProductPage from "./page/ProductPage";
+import DetailProductPage from "./page/DetailProductPage";
 
 export const router = createBrowserRouter([
-  { path: "/", element: <LayoutWebsite /> },
-  { path: "/list", element: <AdminProductList /> },
+  {
+    path: "/",
+    element: <LayoutWebsite />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "product", element: <ProductPage /> },
+      { path: "product/:id/detailproduct", element: <DetailProductPage /> },
+    ],
+  },
   {
     path: "/admin",
     element: <LayoutAdmin />,

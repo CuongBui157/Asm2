@@ -15,7 +15,7 @@ const initialState: {
   };
   productById: {
     message: string;
-    data: object;
+    data: IProduct;
   };
 } = {
   product: {
@@ -24,7 +24,15 @@ const initialState: {
   },
   productById: {
     message: "",
-    data: {},
+    data: {
+      _id: "",
+      name: "",
+      price: 0,
+      origin_price: 0,
+      image: "",
+      description: "",
+      brand: "",
+    },
   },
 };
 

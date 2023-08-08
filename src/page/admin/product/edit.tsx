@@ -11,6 +11,7 @@ const AdminProductEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { productById } = useAppSelector((state) => state.product);
+  let data;
 
   useEffect(() => {
     if (id) {
@@ -18,12 +19,16 @@ const AdminProductEdit = () => {
     }
   }, [id, dispatch]);
 
-  const { register, handleSubmit, reset } = useForm<IProduct>({
-    defaultValues: productById.data,
-  });
+  if (productById.data._id === id) {
+    data = productById.data;
+  }
+  const { register, handleSubmit, reset } = useForm<IProduct>({});
+
   const onSubmit: SubmitHandler<IProduct> = (data: IProduct) => {
     try {
-      dispatch(editProduct(data));
+      const _id = id;
+      dispatch(editProduct({ _id, ...data }));
+      console.log(data);
       const result = window.confirm(
         "Đã sửa sản phẩm thành công, bạn có muốn quay lại trang product list?"
       );
@@ -36,6 +41,7 @@ const AdminProductEdit = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <div className="flex justify-between py-3">
@@ -55,6 +61,7 @@ const AdminProductEdit = () => {
               Name:
             </label>
             <input
+              defaultValue={data?.name}
               {...register("name")}
               type="text"
               id="name"
@@ -68,6 +75,7 @@ const AdminProductEdit = () => {
               Price:
             </label>
             <input
+              defaultValue={data?.price}
               {...register("price")}
               type="number"
               id="price"
@@ -81,6 +89,7 @@ const AdminProductEdit = () => {
               Origin-price:
             </label>
             <input
+              defaultValue={data?.origin_price}
               {...register("origin_price")}
               type="number"
               id="origin-price"
@@ -94,6 +103,7 @@ const AdminProductEdit = () => {
               Image:
             </label>
             <input
+              defaultValue={data?.image}
               {...register("image")}
               type="text"
               id="image"
@@ -107,6 +117,7 @@ const AdminProductEdit = () => {
               Description:
             </label>
             <textarea
+              defaultValue={data?.description}
               {...register("description")}
               id="description"
               rows={3}
@@ -120,6 +131,7 @@ const AdminProductEdit = () => {
               Brand:
             </label>
             <input
+              defaultValue={data?.brand}
               {...register("brand")}
               type="text"
               id="brand"
