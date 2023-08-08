@@ -1,12 +1,18 @@
 export interface IProduct {
+  _id?: string;
   name: string;
   price: number;
   origin_price: number;
   image: string;
   description: string;
-  size: [];
-  category_id: string;
   brand: string;
-  quantity: number;
-  status: boolean;
+}
+
+export interface IProduct2 {
+  name: string;
+  price: number;
+  origin_price: number;
+  image: string;
+  description: string;
+  brand: string;
 }

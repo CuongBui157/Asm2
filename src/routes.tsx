@@ -8,6 +8,7 @@ import AdminProductEdit from "./page/admin/product/edit";
 
 export const router = createBrowserRouter([
   { path: "/", element: <LayoutWebsite /> },
+  { path: "/list", element: <AdminProductList /> },
   {
     path: "/admin",
     element: <LayoutAdmin />,
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
       { path: "product", element: <AdminProductList /> },
       { path: "product/add", element: <AdminProductAdd /> },
-      { path: "product/edit", element: <AdminProductEdit /> },
+      { path: "product/:id/edit", element: <AdminProductEdit /> },
     ],
   },
   { path: "*", element: "Not Found Page" },

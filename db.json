@@ -1,4 +1,27 @@
 {
   "users": [],
-  "products": []
+  "products": [
+    {
+      "name": "San pham a",
+      "price": 111,
+      "origin_price": 111,
+      "image": "string",
+      "description": "string",
+      "size": [],
+      "category_id": "string",
+      "brand": "string",
+      "id": 1
+    },
+    {
+      "name": "San pham a",
+      "price": 111,
+      "origin_price": 111,
+      "image": "string",
+      "description": "string",
+      "size": [],
+      "category_id": "string",
+      "brand": "string",
+      "id": 2
+    }
+  ]
 }
